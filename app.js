@@ -35,6 +35,7 @@ router.route('/sprints')
   .get(sprintsController.findAll)
   .post(sprintsController.addSprint);
 
-router.route('/sprint/:name')
-  .get(sprintsController.findByName);
+router.route('/login')
+  .post(sprintsController.findByNameAndPasswd);
+
 app.use('/api', router);

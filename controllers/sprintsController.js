@@ -34,11 +34,12 @@ exports.findAll = function(req, res) {
 };
 
 //Método encargado de obtener un sprint a partir de su nombre
-exports.findByName = function(req, res){
-    console.log('Get/Sprint by name');
+exports.findByNameAndPasswd = function(req, res){
+    console.log('Get/Sprint by name and password');
     console.log(req.body);
     var name = req.body.name;
-    sprints.findOne({'nombre': name}, function(err, sprint){
+    var passwd = req.body.passwd;
+    sprints.findOne({'nombre': name, 'passwd': passwd}, function(err, sprint){
         if(err){
             return res.send(500, err.message);
         }
